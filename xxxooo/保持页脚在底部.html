@@ -1,0 +1,26 @@
+<style>
+*{ margin:0; padding:0}
+#container{background:#33CCFF}
+#footer{background:#FFCC00;width:100%;}
+</style>
+<div id="container"> 5416416410</div>
+<div id="footer">bottom</div>
+<script language="JavaScript" type="text/javascript">
+function test(){
+ var infoHeight = document.getElementById("container").scrollHeight;
+ var bottomHeight = document.getElementById("footer").scrollHeight;
+ var allHeight = document.documentElement.clientHeight;
+
+ var bottom = document.getElementById("footer");
+ if((infoHeight + bottomHeight) < allHeight){
+  bottom.style.position = "absolute";
+  bottom.style.bottom = "0";
+ }else{
+  bottom.style.position = "";
+  bottom.style.bottom = "";
+ }
+
+ setTimeout(function(){test();},10);
+}
+test();
+</script>
