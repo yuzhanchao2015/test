@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src='../tools/fuckJs.js'></script>
+</head>
+<body>
+<script>
+// F.toast('asdfasdf', 1500, '88vw')
+// setTimeout(function() {
+//     F.toast('asasf', 1500, '88vw')
+//     console.log(111);
+// },3000)
+//
+// console.log(F.emaiTest('asdfasdf@100tal.com'));
+// console.log(F.phoneTest('17831231231'));
+// var aaa = F.hostSplit('www.asdfasdf.com?a=1&uuu=99&dfsfsfs=0101');
+// console.log(aaa);
+// var bbb = F.hostSplit('www.hhfhg.com?lll=111');
+// console.log(bbb);
+// console.log('1'+F.tirmSpace('  asdf  ', "left")+'1');
+// console.log('1'+F.tirmSpace('  a   s    df  ', "all")+'1');
+// console.log('1'+F.tirmSpace('  asdf  ', "right")+'1');
+// console.log('1'+F.tirmSpace('  asdf  ')+'1');
+// console.log('1'+F.tirmSpace('  asdf  ', "dsasfasdf")+'1');
+// console.log(F.clientShow());
+// F.setCookie('a',123,'13d');
+// F.setCookie('b',456,'13h');
+// F.setCookie('c',789,'120s');
+// F.delCookie('b');
+// console.log(F.getCookie('c'));
+// F.setItem('rrr',"a[123]");
+// F.setItem('asdfasdf',123123);
+// F.setItem('zxcvzxcv',[23123,'aa']);
+// F.setItem('klllljkl',{'a':123,'v':234,'ll':'asdf'});
+// var rrr = F.getItem('rrr');
+// var asdfasdf = F.getItem('asdfasdf');
+// var zxcvzxcv = F.getItem('zxcvzxcv');
+// var klllljkl = F.getItem('klllljkl');
+// console.log(rrr);
+// console.log(asdfasdf);
+// console.log(F.getItem('zxcvzxcv'));
+// console.log(klllljkl);
+// console.log(zxcvzxcv[0]);
+// console.log(klllljkl.ll);
+// var arr= [123,123,123,345,345,234,234,789,6798,345,345,1223,123,34,65345,345,345,345]
+// arr = F.uniqueArr(arr);
+// console.log(arr);
+// console.log(F.maxArr(arr));
+// console.log(F.minArr(arr));
+//
+// F.delItem('klllljkl');
+// F.kakaka= function() {
+//     console.log('kakakakakakakakakak');
+// }
+// F.kakaka();
+
+function extend(parent){
+    var child={};
+    for(var i in parent){
+        child[i]=parent[i];
+    }
+    child.uber=parent;
+    return child;
+}
+
+var C=extend(F);
+C.name="C";
+C.getName=function(){
+    return " childName:"+this.name;
+}
+C.getS=function(){
+    return this.radius*this.radius*3.14;
+}
+C.init=function(radius){
+    this.radius=radius;
+}
+console.log(F.rate(4));
+F.allBorder();
+
+
+</script>
+</body>
+</html>
