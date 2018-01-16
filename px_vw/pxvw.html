@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  </style>
+</head>
+<body>
+  <div>
+    <span>基数</span>
+    <input type="radio" name='base' value='750' id='750' checked><babel for='750'>750px</babel>
+    <input type="radio" name='base' value='1080' id='1080'><babel for='1080'>1080px</babel>
+  </div>
+  <div>
+    <input type="text" id = 'yuanpx'>
+    <span>px</span>
+    <span id='bian'>便便便</span>
+    <input type="text" id='bianvw'>
+    <span>vw</span>
+  </div>
+
+  <span></span>
+  <script>
+    var yuanpx = document.getElementById('yuanpx');
+    var bianvw = document.getElementById('bianvw');
+    var bian = document.getElementById('bian');
+    var radios=document.getElementsByName("base");
+    var basepx = 0;
+    bian.onclick = function() {
+      for(var i=0;i<radios.length;i++){
+        if(radios[i].checked==true){
+            basepx = radios[i].value;
+        }
+      }
+      bianvw.value = (yuanpx.value / basepx) * 100
+    }
+
+  </script>
+</body>
+</html>
