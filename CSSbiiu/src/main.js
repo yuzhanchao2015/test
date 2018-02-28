@@ -3,12 +3,9 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import common from '../static/js/common'
 
 Vue.config.productionTip = false
 
-Vue.use(common);
-// window.nameClass = 'up';
 
 var vm = new Vue({
   el: '#app',
