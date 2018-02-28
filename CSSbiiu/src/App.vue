@@ -2,7 +2,7 @@
 <div id="app">
   <div class="home" @touchmove.stop.prevent='iMove($event)'>
     <div class="iphone" ref='iphone' :style='[iStyle,transitionStyle]'  @touchstart.stop='iStart($event)' @touchend.stop='iEnd($event)'>
-      <transition name="component-fade" mode="out-in">
+      <transition name="iphone-fade" mode="out-in">
         <ul v-show='iBigFlag'>
           <li @touchstart.stop="routeTo('/one')">半透明边框</li>
           <li @touchstart.stop="routeTo('/two')">多重边框</li>
@@ -65,12 +65,15 @@ export default {
     routeTo(to) {
       // console.log(to);
       this.$router.push({path: to})
-      this.transitionStyle = {
-        left: this.lastL + 'px',
-        top: this.lastT + 'px',
-        transition: 'all .3s ease'
-      }
+
       this.iBigFlag = false;
+      setTimeout(() => {
+        this.transitionStyle = {
+          left: this.lastL + 'px',
+          top: this.lastT + 'px',
+          transition: 'all .3s ease'
+        }
+      },10)
     },
     changeTrsStyle(style) {
       console.log(style);
@@ -88,7 +91,7 @@ export default {
     iStart($event) {
       $event.stopPropagation();
       this.moveFlag = true;
-      this.nameClass = 'component-fade';
+      this.nameClass = 'left';
       if(!this.iBigFlag) {
         this.transitionStyle.transition = ''
       }
@@ -127,6 +130,7 @@ export default {
     },
     iEnd($event) {
       // $event.stopPropagation();
+      // this.transitionStyle.transition = 'all .3s ease'
       this.moveFlag = false;
       if(this.iBigFlag) {
         return ;
@@ -145,7 +149,7 @@ export default {
           top: 'calc(50vh - 210px)',
           backgroundColor: 'rgba(255,255,255,.7)',
           boxShadow: '0 0 8px 8px rgba(0,0,0,.7)',
-          transition: 'all .3s ease'
+          transition: 'all .3s ease-out'
         }
         this.iBigFlag = true
         return ;
@@ -155,16 +159,19 @@ export default {
       var domH = document.documentElement.clientHeight
       var toTop = $event.changedTouches[0].pageY
       var toRight = $event.changedTouches[0].pageX
-      if(toTop < 100) {
-        this.$refs.iphone.style.top = '0px';
-        this.lastT = 0
-      }else if(domH - toTop < 100) {
-        this.$refs.iphone.style.top = domH - 46 + 'px'
-        this.lastT = domH - 46
-      }else {
-        this.$refs.iphone.style.left = domW - 46 + 'px';
-        this.lastL = domW - 46;
-      }
+      setTimeout(() => {
+        if(toTop < 20) {
+          this.$refs.iphone.style.top = '0px';
+          this.lastT = 0
+        }else if(domH - toTop < 100) {
+          this.$refs.iphone.style.top = domH - 46 + 'px'
+          this.lastT = domH - 46
+        }else {
+          this.$refs.iphone.style.left = domW - 46 + 'px';
+          this.lastL = domW - 46;
+        }
+      },0)
+
       // console.log(this.lastL);
       // console.log(this.lastT);
     },
@@ -203,6 +210,11 @@ body {
   position: relative;
   background-color: hsla(0,0%,100%,.3);
   .iphone {
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
     position: absolute;
     width: 26px;
     height: 26px;
@@ -242,10 +254,41 @@ body {
   left: -10px;
   right: -10px;
   bottom: -10px;
-  background: url(../static/img/bg.png) no-repeat;
+  background: url(../static/img/bg.jpg) no-repeat #ccc;
   background-size: calc(100% - 10px) calc(100% - 10px);
   background-position: center;
   filter: blur(6px);
+}
+.left-enter {
+  /* opacity: 0; */
+  transform: translate(-100%,0px);
+}
+
+.left-enter-to {
+  /* opacity: 1; */
+  transform: translate(0px,0px);
+}
+
+.left-leave {
+  /* opacity: 1; */
+  transform: translate(0px,0px);
+}
+
+.left-leave-to {
+  /* opacity: 0; */
+  transform: translate(100%,0);
+}
+
+.left-leave-active {
+  transition: all .3s ease-out;
+  position: absolute;
+  width: 100%;
+}
+
+.left-enter-active {
+  transition: all .3s ease-out;
+  position: absolute;
+  width: 100%;
 }
 .down-enter {
   transform: translate(0px, 99%);
@@ -314,9 +357,19 @@ body {
   transition: opacity .3s  .2s ease;
 }
 .component-fade-leave-active {
-  transition: opacity .1s  ease;
+  transition: opacity .1s ease;
 }
 .component-fade-enter, .component-fade-leave-to
+{
+  opacity: 0;
+}
+.iphone-fade-enter-active {
+  transition: opacity .3s  .2s ease;
+}
+.iphone-fade-leave-active {
+  transition: opacity 0 ease;
+}
+.iphone-fade-enter, .iphone-fade-leave-to
 {
   opacity: 0;
 }
