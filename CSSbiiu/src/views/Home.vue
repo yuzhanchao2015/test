@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="homewrap">
     <move :moveFlag='moveFlag' @changeTrs='changeTrsStyle'>
       <div class="wrap">
         <div class="title">
@@ -19,7 +19,7 @@
 <script>
 import move from '@/components/Move'
 export default {
-  name: 'home',
+  name: 'homewrap',
   created() {
     document.title = "芝麻开门";
   },
@@ -51,7 +51,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.home {
+.homewrap {
   position: fixed;
   width: 100%;
   height: 100%;
@@ -59,6 +59,7 @@ export default {
   bottom: 0;
   right: 0;
   left: 0;
+  background: red;
 }
 .text {
   text-align: center;

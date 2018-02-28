@@ -210,17 +210,12 @@ body {
   position: relative;
   background-color: hsla(0,0%,100%,.3);
   .iphone {
-    -webkit-transform: translateZ(0);
-    -moz-transform: translateZ(0);
-    -ms-transform: translateZ(0);
-    -o-transform: translateZ(0);
-    transform: translateZ(0);
     position: absolute;
     width: 26px;
     height: 26px;
     border-radius: 50%;
-    background-color: rgba(255,255,255,.7);
-    box-shadow: 0 0 8px 8px rgba(0,0,0,.7);
+    background-color: rgba(255,255,255,.8);
+    box-shadow: 0 0 8px 8px rgba(0,0,0,.8);
     margin: 10px;
     z-index: 9999;
     ul {
@@ -239,10 +234,11 @@ body {
       }
       li:nth-child(odd) {
         background-color: rgba(255,255,255,0);
+        color: rgba(0,0,0,1);
       }
       li:nth-child(even) {
-        background-color: rgba(0,0,0,.5);
-        color: rgba(255,255,255,.9);
+        background-color: rgba(0,0,0,.6);
+        color: rgba(255,255,255,1);
       }
     }
   }

@@ -10,7 +10,7 @@
           <span><b class='key'>background</b><b class='value'>: white;</b></span>
         </div>
         <div class="text item">
-          <span>理论上，上述代码就可以实现我们要的半透明边框，但是根据background的工作原理，北京会延伸到边框所在的区域下层</span>
+          <span>理论上，上述代码就可以实现我们要的半透明边框，但是根据background的工作原理，背景会延伸到边框所在的区域下层</span>
         </div>
         <div class="harfBorder item">
           <span><b class='key'>border</b><b class='value'>: 10px solid hsla(0,0%,100%,.5);</b></span>
